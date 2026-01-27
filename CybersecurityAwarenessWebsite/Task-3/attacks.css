@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0f1c;
+    color: white;
+}
+
+.navbar {
+    background: white;
+    color: black;
+    padding: 15px;
+    text-align: center;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    color: cyan;
+}
+
+.attack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.attack-card {
+    background: #121a2f;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attack-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px cyan;
+}
+
+.attack-card h2 {
+    color: cyan;
+}
+
+.desc {
+    font-style: italic;
+    color: #dcdcdc;
+}
+
+.attack-card ul {
+    padding-left: 20px;
+}
+
+.attack-card li {
+    margin: 6px 0;
+}
+
+.impact {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+footer {
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+.wave-x span {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  color:black;
+  animation: waveX 1.6s ease-in-out infinite;
+}
+
+/* wave animation delays of logo text */
+.wave-x span:nth-child(1) { animation-delay: 0s; }
+.wave-x span:nth-child(2) { animation-delay: 0.1s; }
+.wave-x span:nth-child(3) { animation-delay: 0.2s; }
+.wave-x span:nth-child(4) { animation-delay: 0.3s; }
+.wave-x span:nth-child(5) { animation-delay: 0.4s; }
+.wave-x span:nth-child(6) { animation-delay: 0.5s; }
+.wave-x span:nth-child(7) { animation-delay: 0.6s; }
+.wave-x span:nth-child(8) { animation-delay: 0.7s; }
+.wave-x span:nth-child(9) { animation-delay: 0.8s; }
+
+@keyframes waveX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.visited {
+    position: relative;
+    opacity: 0.75;
+}
+
+.visited::after {
+    content: "✓ Visited";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #00ffcc;
+    color: black;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CyberGuard
+        </title>
+        <link rel="icon" href="logo1.png">
+    </head>
+    <style>
+        body{
+            /* background-image:url('new.jpg');
+            background-repeat:no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover; */
+            background-color: #212121;
+        }
+        .logo{
+            border: 2px solid black;
+            width: fit-content;
+            border-radius: 10px;
+            transition:transform 0.4s ease;
+        }
+        .logo:hover{
+            transform:scale(1.3)
+        }
+        .logo{
+            border: 2px solid black;
+            width: fit-content;
+            border-radius: 10px;
+            transition:transform 0.4s ease;
+        }
+        .logo:hover{
+            transform:scale(1.3)
+        }
+        .box{
+            border: 2px solid rgba(255,255,255,0.7);
+            padding: 20px;
+            margin: 20px;
+            width: fit-content;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .what{
+            border: 2px solid rgba(255,255,255,0.7);
+            padding: 20px;
+            margin: 20px;
+            width:auto;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .images{
+            display: flex;
+            width: 100vw;        
+            height:250px;        
+            margin: 0;
+            padding: 0;
+            gap:10px;
+        }
+
+        .images img{
+            flex: 1;              
+            width: 25%;
+            height: 100%;
+            object-fit: cover;   
+            border: 2px solid rgba(0,255,255,0.6);
+            border-radius: 14px;
+            box-shadow: 
+                0 0 10px black,
+                0 0 30px rgba(225, 255, 255, 0.15);
+        }
+        .wave{
+            font-size: 50px;
+            font-weight: bold;
+            color: cyan;
+            display: inline-block;
+            }
+
+        .wave::after{
+            content: attr(data-text);
+        }
+
+         .wave{
+            position: relative;
+            animation: wave 1.5s infinite ease-in-out;
+        }
+
+        @keyframes wave{
+            0%,100%{
+                transform: translateY(0);
+        }
+        50%{
+            transform: translateY(-15px);
+        }
+           }
+        
+        .audioo{
+            border-radius: 12px;
+            box-shadow:0 10px 81px cyan;
+        }
+        .videoo{
+            border-radius: 12px;
+            box-shadow: 0 10px 81px burlywood;
+        }
+        .container{
+            display:flex;
+
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+        }
+        .navbar a{
+            margin-left: 20px;
+            
+        }
+
+    </style>
+    <body>
+        
+        <header style="background-color:white;" class="navbar">
+            <div>
+                <h2>⚔️ CyberGuard⚔️</h2>
+                <!-- <a href="page.html"><img src="logoll.png"></a> -->
+            </div>
+            <div align="right">
+                <nav style="font-style: italic;">
+                    <a href="attacks.html" style="color: black;text-decoration: none;">Attacks</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                   <a href="solutions.html" style="color: black;text-decoration: none;">Solutions</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="threats.html" style="color: black;text-decoration: none;">web threats</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="owasp10.html" style="color:black;text-decoration: none;">OWASP Top10</a>
+                </nav>
+            </div>
+        </header>
+        
+        </br>
+        </br>
+        <center>
+        <div class="box">
+        <h1 style="color: white; font-style:italic;">CyberThreat AwareHub</h1>
+        <p style="color:whitesmoke;font-style:italic;">Protect yourself online — learn how cyber threats work and how to safeguard your digital life.</p>
+        </div>
+        </center>
+        <p style="color:blanchedalmond;font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In today’s connected world, cyber threats are everywhere—from phishing scams to malware and identity theft.This site helps everyone—students,professionals,families—understand cyber risks and adopt safe online habits.</p>
+        <div class="what" align="left">
+            <h2 style="color: whitesmoke;font-style: italic;">What is Cyber Security 🤔?</h2>
+            <p style="color: whitesmoke;font-style: italic;">Cybersecurity is the practice of protecting computers, networks, programs, and data from digital attacks — unauthorized access, damage, or theft.
+        </div>
+        <h2 style="color: whitesmoke;" class="wave">Common Threats❌</h2>
+        <div class="images">
+            <img src="Images/phising.jpeg" alt="Description 1">
+            <img src="Images/XSS.png" alt="Description 2">
+            <img src="Images/sql.png" alt="Description 3">
+            <img src="Images/malware.png" alt="Description 3">
+
+        </div>
+        <h2 style="color: whitesmoke;">Top 10 cyber attacks in history:</h2>
+        <video controls class="videoo">
+            <source src="Media/aware.mp4">
+        </video>
+        <h2 style="color: white;">Threat Buzzer:</h2>
+        <p style="color: whitesmoke; text-decoration: wavy;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This type of threat buzzers will be activated if any cyber breaches happen.</p>
+        <audio controls class="audioo">
+            <source src="Media/buzzer.mp3">
+        </audio>
+        </br></br>
+        <footer style="color:black; text-align: center; background:white;"> &copy; CyberGuard </footer>
+    </body>
+</html>
