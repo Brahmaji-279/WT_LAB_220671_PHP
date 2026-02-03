@@ -11,7 +11,8 @@ $password = trim($_POST['password'] ?? '');
 if (empty($email) || empty($password)) {
     die("All fields required");
 }
-
+//handling case sensitivity
+$email=strtolower(trim($_POST['email']));
 // Database config
 $host = "localhost";
 $db   = "testdb";
@@ -27,6 +28,7 @@ try {
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 } catch (PDOException $e) {
+    //die message for error
     die("Database connection failed");
 }
 
@@ -38,18 +40,21 @@ $stmt->execute(['email' => $email]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$userData) {
+    //die message for error
     die("Invalid email or password");
 }
 
-// Verify password
+// Verify password(strings comparision)
 if (!password_verify($password, $userData['password'])) {
+    //die message for errors
     die("Invalid email or password");
 }
 
 // Success → start session
 $_SESSION['username'] = $userData['username'];
-
+echo "Welcome, " . htmlspecialchars($userData['username']) . "! You have successfully logged in.";
 header("Location: /php_CyberAwarenessWebsite/CybersecurityAwarenessWebsite/Task-3/index.html");
 exit;
 
 
+    
