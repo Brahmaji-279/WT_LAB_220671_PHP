@@ -1,0 +1,45 @@
+Detection of leprosy in early stages will be a critical challenge in medical health,especially in rural areas where medication is limited to some extent and the medical domain specialists are very few.In this regard,we propose an early diagnosis for the disease with the help of SWIN(Shift-Window) Transformer for image processing and the XGBoost classifier for disease classification.Using of Transformer for image processing improved the pattern extraction of the training images.The proposed system automatically extracts the discriminative features from the images using the SWIN Transformer and achieves the disease classification using the developed model.The experimental results tells about the effectiveness of the proposed model in the detection of leprosy cases with high accuracy and precision by maintaining the efficiency.This method spotlights the strength of Transformers not only in NLP(Natural Language Processing) but also in image processing and it also highlights the XGBoost model's strength to classify a disease.By using our model we can reduce the delay in diagnosis in vast amount all across the cases.
+
+Leprosy also known as Hansen's disease caused by the Mycobacterium leprae,effects the skin parts,peripheral nerves and mucous membranes and it will lead us to long term disabilities if we left them untreated.Leprosy remains as a consistent challenge in medical domain despite of years of efforts.Due to the earlier efforts the increment of cases have been reduced in many regions.But new cases are coming and from the rural areas and particularly from the endemic areas.This describes the transmission of leprosy is going on,so we have to eradicate it.
+
+
+https://pmc.ncbi.nlm.nih.gov/articles/PMC8577780/
+
+
+History reveals that the higher number of cases are subjected to specific geographic regions.That says that the impact of leprosy is more in the specific regions due to the lack of the proper medication.The reports from cuba enlightens the transmission of leprosy and it continues to effect a recognizable number of population including children and it describes the need of early detection and diagnosis to stop spreading the disease.
+
+The advancement of genetic investigations and complex research on computer vision and image processing opens the gateway for different processes for the detection and to stop spread of Mycobacterium leprae which results in Hansen's disease.Although the technology has developed a lot and the different pathways to detect the disease ,still the early diagnosis is retarted by the overlapping symptoms and the laziness of the healthcare workers
+towards the effected population.This is the reason why the detection is very delayed and under-reporting.
+
+By considering all the perceptions,inspite of having the drug therapies,many diagnostic methods leprosy continues to transmit its wings.So there is a need in inventing new methods and pathways to identify the disease in the early stage to stop it growing.In this contest,we designed a tool to detect the leprosy in its early growing stage to reduce burden in public health domain.
+
+The contributions of my research to this field are: (i)Development of SWIN Transfomer for the preprocessing of images and feature extraction (ii) XGBoost model for the  classfication of disease (iii) illustration of scalable solution for the early diagnosis in resource limited areas.
+
+Dataset description:
+  For the training of our model we used the publicly available dataset in the kaggle's 31 classes of skin diseases and we have taken leprosy related data from that and added some other related images to that.The dataset link is https://www.kaggle.com/datasets/kelixo25/31-classes-of-skin-disease.
+  
+  
+  The taken dataset from the kaggle contains some diverse collection of skin diseases images including label.We collected the leprosy related images from the set and segregated into 2 classes called leprosy and non-leprosy by inserting more images.
+The non leprosy data contains the vast number of skin disease images other than leprosy.This enables our model to correctly identify leprosy since many of the skin disease symptoms looks similar to the leprosy.
+
+The figure-1 deliberates our sample images taken from the dataset including leprosy and non leprosy.The figure contains lesions of the skin which are used to extract the features of the disease using SWIN Transformer.It will be very important for our model to understand the patterns of the lesions.
+
+We divided the dataset into 2 classes leprosy and non-leprosy only.But in the program the model automatically segregates the whole dataset into train,test and valid.The below table describes the splitting count of our dataset by the model.
+
+Proposed Methodology:
+	We proposed a Deep Learning(Transformer) integrated with Machine Learning(XGBoost) based model for the leprosy detection from the image which is taken as an input from the patient.Our method increases the lesion detection capacity of the system.Our model has 3 steps:
+	
+1.Data Pre-processing and Aquisition:The images what we are taken are in random states and not ready for directly training the model.So we need to preprocess them in a way that all the images are in same size and then convert them into tensors(vectors) to train the model.To generalize our model we need to use the techniques like image rotation,flipping of the images and contrast adjustment of the lesions.All the images are resized into the 224x224 format to train our model.The images are then converted into tensor format for the feature extraction since any model cannot train on raw data,at first the data should be converted into tensor format.I transformed the images into tensor format using torchvision module in python.
+
+2.Feature Extraction using SWIN Transformer:
+   2.1.SWIN(Shift Window Architecture):The SWIN Transformer is a type of vision transformer which transforms images into little patches without overlapping to extract the fine features in the image.These patches are again divided into small shift windows.These windows provides the feature that every window interacts with each other so that the local and global features are extracted carefully.
+   2.2.Feature Extraction:The pretrained SWIN Transformer is the fine tuned using supervised learning according to our requirement which suits the feature extraction from the images.We will give an image as an input to the transformer and it will gives us the feature representation for the training purposes.In this the dataset images are divided into small patches and the patches are again divided into small shift windows which communicate with the other windows to extract features.
+ 3.Classification using XGBoost:The extracted features used for the training the model and then the embeddings are extracted from data as train,test and valid since we do not explicitly split them.Then the XGBoost model is now trained with the extracted features from SWIN Transformer.Then the disease is classified as a leprosy and a non-leprosy using lesion images.
+ 
+ 4.Grad-cam visualisation:The fully developed model is now perfect to detect leprosy and non-leprosy.Using grad-cam visualization the target lesion image is classified as leprosy and non leprosy.
+ 
+We combined the SWIN Transformer architecture (to extracts feature) and XG boost to classify the lesion .This improves the accuracy while maintaning the efficiency.
+
+
+The confusion matrix clearly illustrates the model's accuracy towards predicting leprosy.The model correctly predicted  613 cases and wrongly predicted 17 cases which was so minimal and also it is correctly predicted 603 non leprosy cases and wrongly identified 12 non leprosy cases.In all the cases the error is minimum.The above statistics tell us the model's sensitivity rate and specificity.Our model is suitable for the clinical applications since negativity rate very much low and it is reliable.This is helpful in early detection and based on that the diagnosis will be provided and it can reduce the unnecessary checks for the false positive cases.
+
