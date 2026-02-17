@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 
     <style>
         * {
@@ -69,6 +72,79 @@
         }
     </style>
 </head>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCdKpQtZHCjctkR9zBwCYuDD2lJgU-Z_w4",
+  authDomain: "cyber-guard-4ee27.firebaseapp.com",
+  projectId: "cyber-guard-4ee27",
+  storageBucket: "cyber-guard-4ee27.firebasestorage.app",
+  messagingSenderId: "746216551614",
+  appId: "1:746216551614:web:748d6e4830cf8979551aef"
+};
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Google Provider
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// Login Function
+function firebaseLogin() {
+    firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+        const user = result.user;
+        alert("Welcome " + user.displayName);
+        console.log(user);
+        window.location.href="/php_CyberAwarenessWebsite/CybersecurityAwarenessWebsite/Task-3/index.html";
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+}
+
+//github login with account linking
+function githubLogin() {
+
+    const provider = new firebase.auth.GithubAuthProvider();
+
+    firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+        window.location.href = "index.html";
+    })
+    .catch((error) => {
+
+        if (error.code === 'auth/account-exists-with-different-credential') {
+
+            const pendingCred = error.credential;
+            const email = error.email;
+
+            alert("Account exists with different provider. Please login with Google first.");
+
+            const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+            firebase.auth().signInWithPopup(googleProvider)
+            .then((result) => {
+
+                result.user.linkWithCredential(pendingCred)
+                .then(() => {
+                    alert("Accounts merged successfully!");
+                    window.location.href = "/php_CyberAwarenessWebsite/CybersecurityAwarenessWebsite/Task-3/index.html";
+                });
+
+            });
+
+        } else {
+            alert(error.message);
+        }
+    });
+}
+
+
+
+
+</script>
+
 <body>
 
 <div class="container">
@@ -102,10 +178,18 @@
     </form>
 
     <div class="footer-text">
-        Already have an account? <a href="login.html">Login</a>
+        Already have an account? <a href="login.html">Login</a><br><br>
+        <a href="google_login.php" class="btn">Login with Google</a><br><br>
+        <button onclick="firebaseLogin()" class="btn">Login with Firebase</button><br><br>
+        <button onclick="githubLogin()" class="btn">Login with GitHub</button>
+
     </div>
 </div>
 
 </body>
+
+
+
+
 </html>
 
